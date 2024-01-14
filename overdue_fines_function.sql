@@ -1,3 +1,4 @@
+-- overdue_fines_function.sql
 CREATE OR REPLACE FUNCTION overdue_fines_cal (
     borrow_date BORROW.BorrowDate%TYPE, 
     return_date BORROW.ReturnDate%TYPE, 
@@ -8,14 +9,16 @@ AS
     days_overdue NUMBER (2); 
     total_fines NUMBER (4,2); 
 BEGIN 
-    days_overdue := actual_date - borrow_date;
+    days_overdue := TRUNC(actual_date) - TRUNC(return_date);
 
-    if days_overdue <= 15 THEN
+    if days_overdue < 0 THEN
+        total_fines := 0;
+    elsif days_overdue <= 15 THEN
         total_fines := 25;
     elsif days_overdue <= 30 THEN
         total_fines := 30;
     elsif days_overdue > 30 THEN 
-        total_fines := 30 + (days_overdue * 2); 
+        total_fines := 30 + (days_overdue * 0.5); 
     else 
         total_fines := 0; 
     END IF; 
@@ -25,4 +28,4 @@ BEGIN
 
     return total_fines; 
 END; 
-/ 
+/
