@@ -1,0 +1,2 @@
+ALTER TABLE BORROW ADD (ActualReturnDate DATE); 
+
