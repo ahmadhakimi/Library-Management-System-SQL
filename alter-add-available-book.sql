@@ -1,0 +1,1 @@
+ALTER TABLE BOOK ADD (book_status VARCHAR2(15)); 
