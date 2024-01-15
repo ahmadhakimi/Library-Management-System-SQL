@@ -12,7 +12,7 @@ DECLARE
   newBookID NUMBER(5);
 
 BEGIN   
-    newBookID := addBook('&&newBookTitle', '&&newBookISBN', '&&newBookGenre', '&&newBookYear', '&&newPublisherName'); 
+    newBookID := addBook('&newBookTitle', '&newBookISBN', '&newBookGenre', '&newBookYear', '&newPublisherName'); 
 
     DBMS_OUTPUT.PUT_LINE('New Book ID: ' || newBookID);
     DBMS_OUTPUT.PUT_LINE('Book Title: ' || '&newBookTitle');
