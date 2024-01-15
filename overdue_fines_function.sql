@@ -1,3 +1,5 @@
+DROP FUNCTION overdue_fines_cal; 
+
 -- overdue_fines_function.sql
 CREATE OR REPLACE FUNCTION overdue_fines_cal (
     borrow_date BORROW.BorrowDate%TYPE, 
