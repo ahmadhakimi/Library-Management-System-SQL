@@ -15,6 +15,11 @@ BEGIN
     FROM BORROW
     WHERE BorrowId = &borrowId;
 
+    -- Debug statements to print the values
+    DBMS_OUTPUT.PUT_LINE('Borrow Date: ' || TO_CHAR(borrow_date));
+    DBMS_OUTPUT.PUT_LINE('Return Date: ' || TO_CHAR(return_date));
+    DBMS_OUTPUT.PUT_LINE('Actual Return Date: ' || TO_CHAR(actual_date));
+
     total_fines := overdue_fines_cal(borrow_date, return_date, actual_date);
 
     DBMS_OUTPUT.PUT_LINE('Total Fines: RM ' || total_fines);
